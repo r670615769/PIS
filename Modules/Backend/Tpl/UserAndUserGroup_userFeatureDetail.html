@@ -1,0 +1,16 @@
+<extend name="Base:base" />
+<block name="content">
+    <dl class="dl-horizontal">
+        <dt>标题</dt><dd>{$featureDetail.title}</dd>
+        <dt>栏目介绍</dt><dd>{$featureDetail.description|default="&nbsp;"}</dd>
+        <dt>表单类型</dt><dd>{$featureDetail.elementType}</dd>
+        <dt>大小限定</dt><dd>{$featureDetail.size}</dd>
+        <dt>启用</dt><dd><span class="icon {$featureDetail.available}"></span></dd>
+        <dt>必填项</dt><dd><span class="icon {$featureDetail.require}"></span></dd>
+        <dt>成员可用</dt><dd><span class="icon {$featureDetail.enableToMember}"></span></dd>
+        <dt>用户可用</dt><dd><span class="icon {$featureDetail.enableToUser}"></span></dd>
+        <dt>验证</dt><dd>{$featureDetail.condition|default="&nbsp;"}</dd>
+        <dt>排序</dt><dd>{$featureDetail.rank}</dd>
+        <dt>系统保留项</dt><dd><span class="icon {$featureDetail.systemItem}"></span></dd>
+    </dl>
+</block>

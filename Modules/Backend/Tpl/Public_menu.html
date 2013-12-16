@@ -1,0 +1,18 @@
+<!--sidebar-menu-->
+<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+    <ul>
+        <volist name='menu' id='mainmenu'>
+            <li class="<if condition='$mainmenu.submenu != null'>submenu</if> <if condition='$mainmenu.active == true'>active</if>">
+                <a href="{$mainmenu.URL}"><i class="icon {$mainmenu.icon}"></i> <span>{$mainmenu.title}</span></a>
+                <if condition='$mainmenu.submenu != null'>
+                    <ul>
+                        <volist name='mainmenu["submenu"]' id='submenu'>
+                            <li><a href="{$submenu.URL}">{$submenu.title}</a></li>
+                        </volist>
+                    </ul>
+                </if>
+            </li>
+        </volist>
+    </ul>
+</div>
+<!--sidebar-menu-->

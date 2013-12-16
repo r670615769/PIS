@@ -1,0 +1,102 @@
+<extend name="Base:Base" />
+<block name="content">
+    <form class="form-horizontal" action="" method="post">
+        <input name="op" value="{$featureInfo.op | default='new'}" type="hidden" />
+        <div class="control-group">
+            <label class="control-label" for="title">标题</label>
+            <div class="controls">
+                <input type="text" class="form-control" name="title" id="title" value="{$featureInfo.title}" />
+                <span class="help-block span9">标题少于32个字符</span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="description">栏目介绍</label>
+            <div class="controls">
+                <input type="text" class="form-control" name="description" id="description" value="{$featureInfo.description}" />
+                <span class="help-block span9">栏目介绍少于100个字符</span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">表单类型</label>
+            <div class="controls">
+                <label>
+                    <input type="radio" name="elementType" value="text" <if condition='(($featureInfo.elementType == "text") and ($featureInfo !== null)) or ($featureInfo === null)'>checked="checked"</if> />单行文本框
+                </label>
+                <label>
+                    <input type="radio" name="elementType" value="textarea" <if condition='($featureInfo.elementType == "textarea") and ($featureInfo !== null)'>checked="checked"</if> />多行文本框
+                </label>
+                <label>
+                    <input type="radio" name="elementType" value="radio" <if condition='($featureInfo.elementType == "radio") and ($featureInfo !== null)'>checked="checked"</if> />单选框
+                </label>
+                <label>
+                    <input type="radio" name="elementType" value="checkbox" <if condition='($featureInfo.elementType == "checkbox") and ($featureInfo !== null)'>checked="checked"</if> />复选框
+                </label>
+                <label>
+                    <input type="radio" name="elementType" value="select" <if condition='($featureInfo.elementType == "select") and ($featureInfo !== null)'>checked="checked"</if> />下拉列表
+                </label>
+                <label>
+                    <input type="radio" name="elementType" value="select multiple" <if condition='($featureInfo.elementType == "select multiple") and ($featureInfo !== null)'>checked="checked"</if> />多选框
+                </label>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="size">大小限定</label>
+            <div class="controls">
+                <input type="text" class="form-control" name="size" id="size" value="{$featureInfo.size|default='0'}" />
+                <span class="help-block span9">最多可填写的字符数或最多可选择的项数 0表示不限制大小</span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">启用</label>
+            <div class="controls">
+                <label>
+                    <input type="checkbox" name="available" value="1"
+                    <if condition='(($featureInfo.available == 1) and ($featureInfo !== null)) or ($featureInfo === null)'>checked="checked"</if>/>是
+                </label>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">必填项</label>
+            <div class="controls">
+                <label>
+                    <input type="checkbox" name="require" value="1" <if condition='($featureInfo.require == 1) and ($featureInfo !== null)'>checked="checked"</if> />是
+                </label>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">成员可用</label>
+            <div class="controls">
+                <label>
+                    <input type="checkbox" name="enableToMember" value="1" <if condition='(($featureInfo.enableToMember == 1) and ($featureInfo !== null)) or ($featureInfo === null)'>checked="checked"</if> />是
+                </label>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">用户可用</label>
+            <div class="controls">
+                <label>
+                    <input type="checkbox" name="enableToUser" value="1" <if condition='(($featureInfo.enableToUser == 1) and ($featureInfo !== null)) or ($featureInfo === null)'>checked="checked"</if> />是
+                </label>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">验证</label>
+            <div class="controls">
+                <select name="condition" class="span3">
+                </select>
+                <span class="help-block span10">空白表示无需验证</span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="rank">排序</label>
+            <div class="controls">
+                <input type="text" class="form-control span1" name="rank" id="rank" value="{$featureInfo.rank|default='0'}" />
+                <span class="help-block span12">数字越大排在越后</span>
+            </div>
+        </div>
+        <div class="form-actions">
+             <input type="submit" class="btn" value="保存" />
+        </div>
+    </form>
+</block>
+

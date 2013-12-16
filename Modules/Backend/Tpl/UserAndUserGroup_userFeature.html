@@ -1,0 +1,32 @@
+<extend name="Base:Base" />
+<block name="content">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>标题</th>
+            <th>启用</th>
+            <th>用户可用</th>
+            <th>成员可用</th>
+            <th>排序</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <volist name='featureList' id='feature'>
+        <tr>
+            <td>{$feature.title}</td>
+            <td><span class="icon {$feature.available}"></span></td>
+            <td><span class="icon {$feature.enableToUser}"></span></td>
+            <td><span class="icon {$feature.enableToMember}"></span></td>
+            <td>{$feature.rank}</td>
+            <td>
+                <volist name='feature["ops"]' key='oid' id='op' mod='2'>
+                    <gt name="oid" value='0'><eq name='mod' value='1'> | </eq></gt>
+                    <a href="{$op[1]}">{$op[0]}</a>
+                </volist>
+            </td>
+        </tr>
+        </volist>
+        </tbody>
+    </table>
+</block>

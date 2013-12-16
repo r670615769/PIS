@@ -1,0 +1,35 @@
+<!--main-container-part-->
+<div id="content">
+    <!--breadcrumbs-->
+    <div id="content-header">
+        <div id="breadcrumb">
+            <volist name='nav' id='item'>
+                <a href="{$item.URL}" title="{$item.title}" class="tip-bottom {$item.class}"><if condition='$item.icon != null'><i class="{$item.icon}"></i></if> {$item.title}</a>
+            </volist>
+        </div>
+        <h1>{$contentTitle}</h1>
+        <if condition='$subnav != null'>
+        <div class="subnav">
+            <volist name='subnav' id='item'>
+                <a href='{$item.URL}' class="btn btn-mini <if condition='$item.active == true'>btn-inverse</if>">{$item.title}</a>
+            </volist>
+        </div>
+        </if>
+    </div>
+    <!--End-breadcrumbs-->
+    <div class="container-fluid">
+        <hr>
+        <if condition="$confirmInfo != null">
+        <div class="alert {$confirmInfo.class} dismissable">
+            <button class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h4 class="alert-heading">{$confirmInfo.head}</h4> {$confirmInfo.body}
+        </div>
+        </if>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title"> <span class="icon"> <i class="{$icon}"></i> </span>
+                        <h5>{$subContentTitle}</h5>
+                    </div>
+                    <div class="widget-content">
+
