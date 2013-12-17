@@ -214,6 +214,8 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 
+.idea/
+*.iml
 Templete/
 Runtime/
 upload/
